@@ -8,6 +8,13 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+
+import org.mozilla.javascript.Context;
+import org.mozilla.javascript.Scriptable;
+import org.mozilla.javascript.ScriptableObject;
+import java.util.Stack;
+
+
 public class MainActivity extends AppCompatActivity {
 
     Button btn_1,btn_2,btn_3,btn_4,btn_5,btn_6,btn_7,btn_8,btn_9,btn_0,btn_point;
@@ -21,6 +28,7 @@ public class MainActivity extends AppCompatActivity {
         initailizer();
         handleNumBtns();
         handleOpBtns();
+        handleEqualBtn();
 
     }
 
@@ -202,10 +210,39 @@ public class MainActivity extends AppCompatActivity {
         btn_AC.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(MainActivity.this, "ALL CLEAR", Toast.LENGTH_SHORT).show();
+                Toast.makeText(MainActivity.this, "ALL CLEARED", Toast.LENGTH_SHORT).show();
                 TV_InputField.setText("");
+                TV_ResultField.setText("");
             }
         });
+    }
+
+    public void handleEqualBtn(){
+        btn_equal.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String exp = TV_InputField.getText().toString();
+                String res = eval(exp);
+                TV_ResultField.setText(res);
+//                Toast.makeText(MainActivity.this, exp, Toast.LENGTH_SHORT).show();
+
+            }
+        });
+    }
+
+    public String eval(String str){
+        try {
+            Context rHino = Context.enter();
+            rHino.setOptimizationLevel(-1);
+            Scriptable scope = rHino.initStandardObjects();
+            String tempRes = rHino.evaluateString(scope,str,"javascript",1,null).toString();
+            return tempRes;
+        }catch (Exception e){
+            Toast.makeText(this, e.getMessage(), Toast.LENGTH_SHORT).show();
+        }finally {
+            Context.exit();
+        }
+        return "Error";
     }
 
 

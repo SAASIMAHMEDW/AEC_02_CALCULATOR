@@ -37,7 +37,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
                 android:fontFamily="@font/alata"
-                android:text="Result"
+                android:text=""
                 android:textAlignment="textEnd"
                 android:textSize="30sp" />
         </LinearLayout>
@@ -54,7 +54,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
-                android:layout_marginTop="40dp"
+                android:layout_marginTop="60dp"
                 android:layout_marginRight="10dp"
                 android:layout_marginBottom="10dp"
                 android:orientation="horizontal">
@@ -220,13 +220,16 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="0.3"
+                    android:layout_marginTop="-10dp"
+                    android:layout_weight="0.25"
                     android:orientation="vertical">
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:layout_margin="10dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginRight="10dp"
+                        android:layout_marginBottom="10dp"
                         android:orientation="horizontal">
 
                         <Button
@@ -269,7 +272,9 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:layout_margin="10dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginRight="10dp"
+                        android:layout_marginBottom="10dp"
                         android:orientation="horizontal">
 
                         <Button
@@ -340,7 +345,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/alata"
-                    android:text="BY: AADARSH"
+                    android:text="BY: ORACLE"
                     android:textAlignment="center" />
             </LinearLayout>
 
